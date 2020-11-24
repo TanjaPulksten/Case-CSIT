@@ -1,0 +1,40 @@
+[
+  {
+    "address": "Kadunnimi 123",
+    "languageCodeDescription": "xxxx",
+    "idOfSupervisor": "xxx",
+    "workPeriodStatus": false,
+    "nickName": "Sonkku",
+    "postalCode": "00100",
+    "oficialJobDescription": "xxxx",
+    "firstNames": "Sonja",
+    "workPeriodDescription": "xxxx",
+    "languageCode": "xxx",
+    "socialSecurityCode": "xxxxxx",
+    "workPeriodId": "xxxx",
+    "isSupervisor": false,
+    "postalDistrict": "Helsinki",
+    "familyName": "Sauvola",
+    "workDepartment": "xxxx",
+    "username": "sauvoso"
+  },
+  {
+    "address": "ToinenKadunnimi 456",
+    "languageCodeDescription": "xx",
+    "idOfSupervisor": "xx",
+    "workPeriodStatus": false,
+    "nickName": "Vaude",
+    "postalCode": "33101",
+    "oficialJobDescription": "xx",
+    "firstNames": "Ville",
+    "workPeriodDescription": "xx",
+    "languageCode": "xx",
+    "socialSecurityCode": "xxxx",
+    "workPeriodId": "xx",
+    "isSupervisor": false,
+    "postalDistrict": "Tampere",
+    "familyName": "Vallaton",
+    "workDepartment": "xx",
+    "username": "vallatvi"
+  }
+]
