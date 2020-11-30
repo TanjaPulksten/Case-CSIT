@@ -1,49 +1,42 @@
 import React, {useState, useEffect} from 'react';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 
 import MyPage from './pages/mypage.js';
-import users from './components/users.json';
+import ForgotPassword from './pages/forgotpassword.js';
+import UpdateInfo from './pages/updatemyinfo.js';
+import GetInfo from './pages/getmyinfo.js';
+import DeleteInfo from './pages/deletemyinfo.js';
+import LogIn from './pages/login.js';
+import ChangePassword from './pages/changepassword.js';
 
-const theme = createMuiTheme({
-  palette:{
-    primary: {main:"#FBFAFA", contrastText:"#414042"},
-    secondary: {main:"#EAEAEA", contrastText:"#414042"},
-    text: {primary: "#414042", secondary:"#ED1C24", contrastText:"#DDDDDD"},
-    action: {active:"#ED1C24", hover:"#ED1C24", selected:"#FCB81C"}
-  },
-  typography: {
-    fontFamily: ['Avenir', 'Lato', 'sans-serif'],
-  },
-  overrides: {
-    MuiButton: {
-      root: {
-        color:"#FBFAFA", backgroundColor: "#414042",
-        "&&:hover": {color: "#414042", backgroundColor: "#FBFAFA",
-              borderStyle: "solid", borderWidth: 1, borderColor: "#8D8D8D" }
-      }
-    }
-  }
-})
+import logo from './images/csit-logo-oikea.png';
+import theme from './components/theme.js';
 
 
 function App() {
   const classes = useStyles();
 
-
   return (
     <MuiThemeProvider theme = {theme}>
+      <CssBaseline />
       <BrowserRouter>
-        <div>
+        <div style={{alignItems:"center"}}>
           <Paper elevation={5} className={classes.container}>
-            <img src='./images/csit-logo-oikea.png' alt='logo' />
-            <Typography className={classes.header}>CIST</Typography>
+            <img src={logo} alt='logo' style={{height: 50, margin:5,}}/>
           </Paper>
           <Switch>
-            <Route exact path="/" component={MyPage}/>
+            <Route exact path="/" component={LogIn}/>
+            <Route path="/forgot" component={ForgotPassword}/>
+            <Route path="/mypage" component={MyPage}/>
+            <Route path="/changepassword" component={ChangePassword}/>
+            <Route path="/update" component={UpdateInfo}/>
+            <Route path="/getmydata" component={GetInfo}/>
+            <Route path="/delete" component={DeleteInfo}/>
+            <Route component={LogIn}/>
           </Switch>
         </div>
       </BrowserRouter>
@@ -63,6 +56,7 @@ const useStyles = makeStyles({
     justifyContent: 'flex-start',
     backgroundColor: "#FBFAFA",
     borderWidth: 0,
+    marginBottom: 25,
   }
 
 });
