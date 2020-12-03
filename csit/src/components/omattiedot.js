@@ -13,7 +13,7 @@ function HaeOmatTiedot() {
   const data = users;
 
   return (
-    <Paper className={classes.paper}>
+    <Paper elevation={4} className={classes.paper}>
       <TextField
         required
         id="username"
@@ -85,6 +85,8 @@ function HaeOmatTiedot() {
 const useStyles = makeStyles({
   paper: {
     textAlign: 'center',
+    width: 300,
+    backgroundColor: "#FBFAFA"
   },
 });
 

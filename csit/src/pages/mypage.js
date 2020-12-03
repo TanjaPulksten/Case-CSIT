@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
@@ -15,18 +16,23 @@ function MyPage() {
 
   const data = users;
 
-
   return (
     <div className={classes.container}>
-      <Grid container spacing={6}>
-        <Grid item xs={6}>
-          <Typography className={classes.header}>Omat tiedot</Typography>
+      <Grid container spacing={8}>
+        <Grid container item xs={12} sm={6} alignContent="flex-end" direction="column">
+          <Typography style={{textAlign:"center"}} className={classes.header}>Omat tiedot</Typography>
           {HaeOmatTiedot()}
         </Grid>
 
-        <Grid item xs={6}>
-          <Typography className={classes.header}>Työsuhde tiedot</Typography>
+        <Grid container item xs={12} sm={6} alignContent="flex-start" direction="column">
           {HaeTyoTiedot()}
+
+          <Paper elevation={4} className={classes.paper}>
+            <Typography to="/changepassword" component={Link}>Vaihda salasana</Typography> <br/>
+            <Typography to="/update" component={Link}>Työsuhdetietojen päivityspyyntö</Typography> <br/>
+            <Typography to="/getmydata" component={Link}>Omien käyttäjätietojen tilaus</Typography> <br/>
+            <Typography to="/delete" component={Link}>Tietojen poistopyyntö</Typography>
+          </Paper>
         </Grid>
       </Grid>
     </div>
@@ -42,14 +48,14 @@ const useStyles = makeStyles({
     flexGrow: 1,
     flexDirection: 'row',
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: 'center',
     marginLeft: 50,
     marginRight: 50,
   },
   paper: {
-    textAlign: 'center',
+    padding: "15px 10px 15px 40px",
+    width: 300,
+    backgroundColor: "#FBFAFA",
+    marginTop: 20,
   },
 });
 

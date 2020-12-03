@@ -60,7 +60,6 @@ function ForgotPassword() {
             Kirjautumiseen
           </Button>
         </DialogActions>
-
       </Dialog>
 
     </div>
