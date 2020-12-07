@@ -8,12 +8,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 
-
 import users from '../components/users.json'
 
 function HaeOmatTiedot() {
   const classes = useStyles();
-  const data = users;
   const [show, setShow] = useState(false);
 
   const handleClickOpen = () => {
@@ -31,6 +29,7 @@ function HaeOmatTiedot() {
         required
         id="username"
         label="Käyttäjätunnus"
+        defaultValue={users[2].username}
         variant="outlined"
         size="small"
         style={{marginTop: 20, marginBottom: 5}} />
@@ -39,6 +38,7 @@ function HaeOmatTiedot() {
         required
         id="surname"
         label="Sukunimi"
+        defaultValue={users[2].familyName}
         variant="outlined"
         size="small"
         style={{margin: 5}}/>
@@ -47,6 +47,7 @@ function HaeOmatTiedot() {
         required
         id="firstnames"
         label="Etunimet"
+        defaultValue={users[2].firstNames}
         variant="outlined"
         size="small"
         style={{margin: 5}}/>
@@ -54,6 +55,7 @@ function HaeOmatTiedot() {
       <TextField
         id="nickname"
         label="Kutsumanimi"
+        defaultValue={users[2].nickName}
         variant="outlined"
         size="small"
         style={{margin: 5}}/>
@@ -62,6 +64,7 @@ function HaeOmatTiedot() {
         required
         id="address"
         label="Katuosoite"
+        defaultValue={users[2].address}
         variant="outlined"
         size="small"
         style={{margin: 5}}/>
@@ -70,6 +73,7 @@ function HaeOmatTiedot() {
         required
         id="postalcode"
         label="Postinumero"
+        defaultValue={users[2].postalCode}
         variant="outlined"
         size="small"
         style={{margin: 5}}/>
@@ -78,6 +82,7 @@ function HaeOmatTiedot() {
         required
         id="city"
         label="Kaupunki"
+        defaultValue={users[2].postalDistrict}
         variant="outlined"
         size="small"
         style={{margin: 5}}/>
@@ -86,6 +91,7 @@ function HaeOmatTiedot() {
         required
         id="language"
         label="Kieli"
+        defaultValue={users[2].languageCodeDescription}
         variant="outlined"
         size="small"
         style={{marginTop: 5, marginBottom: 20}}/>

@@ -36,5 +36,36 @@
     "familyName": "Vallaton",
     "workDepartment": "xx",
     "username": "vallatvi"
+  },
+  {
+    "schema": "schemas:[urn:ietf:params:scim:schemas:core:2.0:User]",
+    "id": "a8ffb2bd-69f0-443d-b389-087f14ad4db7",
+    "externalId": "",
+    "meta": {
+        "resourceType": "User",
+        "created": "2020-10-28 16:32:00.347288",
+        "lastModified": "2020-10-28 16:32:00.347386",
+        "location": "http://:0/v2/Users/a8ffb2bd-69f0-443d-b389-087f14ad4db7",
+        "version": 0.1
+    },
+    "username": "tanja@csit.com",
+    "socialSecurityCode": "010293-010T",
+    "familyName": "Pulksten",
+    "firstNames": "Tanja Johanna",
+    "nickName": "Tessa",
+    "address": "Ratapihantie 13",
+    "postalCode": "00520",
+    "postalDistrict": "Helsinki",
+    "languageCode": "FI",
+    "languageCodeDescription": "suomi",
+    "workPeriodId": "10e233c2-13de-4937-9fd0-7598af52a4ba",
+    "workPeriodDescription": "Opiskelija",
+    "officialJobDescription": "Opiskelee tietojen käsittelyä",
+    "workDepartment": "Haaga-Helia Pasila",
+    "workPeriodStartDate": "25.08.2019",
+    "workPeriodEndDate": "2021",
+    "workPeriodStatus": false,
+    "isSupervisor": true,
+    "idOfSupervisor": "23145673678903"
   }
 ]

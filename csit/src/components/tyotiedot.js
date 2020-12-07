@@ -20,6 +20,7 @@ function HaeTyoTiedot() {
           disabled
           id="usernumber"
           label="Käyttäjänumero"
+          defaultValue={users[2].id}
           variant="outlined"
           size="small"
           style={{marginTop: 20, marginBottom: 5}} />
@@ -28,6 +29,7 @@ function HaeTyoTiedot() {
           disabled
           id="socialsecurity"
           label="Sosiaaliturvatunnus"
+          defaultValue={users[2].socialSecurityCode}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -36,14 +38,16 @@ function HaeTyoTiedot() {
           disabled
           id="workstarted"
           label="Työsuhteen alkamisaika"
+          defaultValue={users[2].workPeriodStartDate}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
         <br/>
         <TextField
           disabled
-          id="workstatus"
+          id="work"
           label="Työsuhde"
+          defaultValue={users[2].workPeriodDescription}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -52,6 +56,7 @@ function HaeTyoTiedot() {
           disabled
           id="workid"
           label="Työsuhde ID"
+          defaultValue={users[2].workPeriodId}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -60,6 +65,7 @@ function HaeTyoTiedot() {
           disabled
           id="jobposition"
           label="Työnimike"
+          defaultValue={users[2].workPeriodDescription}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -68,6 +74,7 @@ function HaeTyoTiedot() {
           disabled
           id="jobdescription"
           label="Työnkuva"
+          defaultValue={users[2].officialJobDescription}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -76,6 +83,7 @@ function HaeTyoTiedot() {
           disabled
           id="supervisorid"
           label="Esimies ID"
+          defaultValue={users[2].idOfSupervisor}
           variant="outlined"
           size="small"
           style={{marginTop: 5, marginBottom: 20}}/>
