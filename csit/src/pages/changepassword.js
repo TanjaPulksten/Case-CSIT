@@ -60,8 +60,8 @@ function ChangePassword() {
         size="small"
         style={{marginTop: 5, marginBottom: 20}}/>
 
-      <Button onClick={handleClickOpen} style={{marginBottom: 10}}>Vaihda</Button>
-      <Button to="/mypage" component={Link} style={{marginBottom: 20}}>Peruuta</Button>
+      <Button onClick={handleClickOpen} variant="contained" color="primary" style={{marginBottom: 10}}>Vaihda</Button>
+      <Button to="/mypage" component={Link} variant="contained" color="secondary" style={{marginBottom: 20}}>Peruuta</Button>
 
       <Dialog
         open={show}
@@ -69,7 +69,7 @@ function ChangePassword() {
         aria-labelledby="alert-title">
         <DialogTitle id="alert-title">{"Salasanan vaihto onnistui!"}</DialogTitle>
         <DialogActions>
-          <Button to="/mypage" component={Link} color="secondary">
+          <Button to="/mypage" component={Link} variant="contained" color="secondary">
             Omalle sivulle
           </Button>
         </DialogActions>

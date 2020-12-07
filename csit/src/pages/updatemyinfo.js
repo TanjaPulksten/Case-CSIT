@@ -5,6 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
@@ -59,7 +61,7 @@ function UpdateInfo() {
           <FormGroup>
             <div className={classes.check}>
               <FormControlLabel
-              control={<Checkbox checked={usernumber} onChange={handleCheckChange} name="usernumber" />}
+              control={<Checkbox checked={usernumber} onChange={handleCheckChange} name="usernumber"/>}
               style={{marginRight:0}}/>
               <TextField
                 id="usernumber"
@@ -157,16 +159,19 @@ function UpdateInfo() {
           size="small"
           style={{marginTop: 5, marginBottom: 20, width: 253}}/>
 
-        <Button onClick={handleDialogOpen} style={{marginBottom: 10}}>Lähetä</Button> <br/>
-        <Button to="/mypage" component={Link} style={{marginBottom: 20}}>Peruuta</Button>
+        <Button onClick={handleDialogOpen} variant="contained" color="primary" style={{marginBottom: 10}}>Lähetä</Button> <br/>
+        <Button to="/mypage" component={Link} variant="contained" color="secondary" style={{marginBottom: 20}}>Peruuta</Button>
 
         <Dialog
           open={show}
           onClose={handleDialogClose}
           aria-labelledby="alert-title">
-          <DialogTitle id="alert-title">{"Pyyntö lähetetty. Saat tietoa pyynnön tilasta sähköpostitse."}</DialogTitle>
+          <DialogTitle id="alert-title">{"Pyyntö lähetetty."}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description"> {"Saat tietoa pyynnön tilasta sähköpostitse."} </DialogContentText>
+          </DialogContent>
           <DialogActions>
-            <Button to="/mypage" component={Link} color="secondary">
+            <Button to="/mypage" component={Link} variant="contained" color="secondary">
               Omalle sivulle
             </Button>
           </DialogActions>

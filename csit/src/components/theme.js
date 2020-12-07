@@ -2,9 +2,9 @@ import {createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette:{
-    primary: {main:"#414042", contrastText:"#FBFAFA"},
+    primary: {main:"#414042", light: "#8D8D8D", contrastText:"#FBFAFA"},
     secondary: {main:"#71B7AD", contrastText:"#414042"},
-    text: {primary: "#414042", secondary:"#ED1C24", contrastText:"#DDDDDD",
+    text: {primary: "#414042", secondary:"#8D8D8D", contrastText:"#DDDDDD",
     },
     action: {active:"#ED1C24", hover:"#ED1C24", selected:"#FCB81C"},
     background: {default: "#FBFAFA"},
@@ -13,16 +13,22 @@ const theme = createMuiTheme({
     fontFamily: ['Avenir', 'Lato', 'sans-serif'],
   },
   overrides: {
-    MuiLink: {
-      root: {
-        color: "secondary", underline: "always",
+    MuiTypography: {
+      body2: { // Use in links
+        color: "#414042", underline: "always", fontSize:17,
+        "&&:hover": {color: "#4634AD"}
       }
     },
     MuiButton: {
-      root: {
-        color:"#FBFAFA", backgroundColor: "#414042", width: 150,
+      containedPrimary: {
+        color:"#FBFAFA", backgroundColor: "#414042", padding:"7px 20px 7px 20px",
         borderRadius: 20, borderStyle: "solid", borderWidth: 1, borderColor: "#8D8D8D",
-        "&&:hover": {color: "#414042", backgroundColor: "#EEEEEE",}
+        "&&:hover": {color: "#414042", backgroundColor: "#DDDDDD",}
+      },
+      containedSecondary:{
+        color:"#414042", backgroundColor: "#EEEEEE", padding:"7px 20px 7px 20px",
+        borderRadius: 20, borderStyle: "solid", borderWidth: 1, borderColor: "#8D8D8D",
+        "&&:hover": {color: "#414042", backgroundColor: "#DDDDDD",}
       }
     },
     MuiTextField: {
@@ -45,7 +51,17 @@ const theme = createMuiTheme({
       root: {
         backgroundColor: "#414042"
       }
-    }
+    },
+    MuiDialogContentText:{
+      root:{
+        backgroundColor: "#414042", color:"#FBFAFA"
+      }
+    },
+    MuiDialogContent:{
+      root:{
+        backgroundColor: "#414042"
+      }
+    },
   }
 })
 

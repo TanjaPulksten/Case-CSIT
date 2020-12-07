@@ -32,7 +32,7 @@ function App() {
           <Paper elevation={5} className={classes.container}>
             <img src={logo} alt='logo' style={{height: 50, margin:5}}/>
             <div style={{display:"flex", flexDirection:"row"}}>
-              <Typography style={{fontWeight: "bold", marginRight:30}} to="/" component={Link}>{logout}</Typography>
+              <Typography variant="body2" style={{fontWeight: "bold", marginRight:30}} to="/" component={Link}>{logout}</Typography>
               <Typography style={{fontWeight: "bold", color:"#ED1C24", marginRight:5}}>FI</Typography>
               <Typography style={{fontWeight: "bold"}}>SV EN</Typography>
             </div>

@@ -4,6 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
@@ -34,7 +36,7 @@ function DeleteInfo() {
 
       <div style={{maxWidth: 400}}>
         <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</Typography> <br/>
-        <Typography>Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</Typography>
+        <Typography>Voit koska tahansa pyytää meitä lopettamaan tietojesi käsittelyn ja poistamaan tiedot.</Typography>
       </div>
 
       <TextField
@@ -46,17 +48,20 @@ function DeleteInfo() {
         size="small"
         style={{marginBottom:15, marginTop: 25}} />
 
-      <Button onClick={handleClickOpen} style={{marginBottom: 10}}>Lähetä</Button>
-      <Button to="/mypage" component={Link} style={{marginBottom: 20}}>Peruuta</Button>
+      <Button onClick={handleClickOpen} variant="contained" color="primary" style={{marginBottom: 10}}>Lähetä</Button>
+      <Button to="/mypage" component={Link} variant="contained" color="secondary" style={{marginBottom: 20}}>Peruuta</Button>
 
 
       <Dialog
         open={show}
         onClose={handleClose}
         aria-labelledby="alert-title">
-        <DialogTitle id="alert-title">{"Pyyntö lähetetty. Saat sähköpostiisi vahvistuksen, kun pyyntösi on käsitelty."}</DialogTitle>
+        <DialogTitle id="alert-title">{"Pyyntö lähetetty."}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description"> {"Saat sähköpostiisi vahvistuksen, kun pyyntösi on käsitelty."} </DialogContentText>
+        </DialogContent>
         <DialogActions>
-          <Button to="/mypage" component={Link} color="secondary">
+          <Button to="/mypage" component={Link} variant="contained" color="secondary">
             Omalle sivulle
           </Button>
         </DialogActions>

@@ -28,10 +28,10 @@ function MyPage() {
           {HaeTyoTiedot()}
 
           <Paper elevation={4} className={classes.paper}>
-            <Typography to="/changepassword" component={Link}>Vaihda salasana</Typography> <br/>
-            <Typography to="/update" component={Link}>Työsuhdetietojen päivityspyyntö</Typography> <br/>
-            <Typography to="/getmydata" component={Link}>Omien käyttäjätietojen tilaus</Typography> <br/>
-            <Typography to="/delete" component={Link}>Tietojen poistopyyntö</Typography>
+            <Typography to="/changepassword" component={Link} variant="body2">Vaihda salasana</Typography> <br/>
+            <Typography to="/update" component={Link} variant="body2">Työsuhdetietojen päivityspyyntö</Typography> <br/>
+            <Typography to="/getmydata" component={Link} variant="body2">Omien käyttäjätietojen tilaus</Typography> <br/>
+            <Typography to="/delete" component={Link} variant="body2">Tietojen poistopyyntö</Typography>
           </Paper>
         </Grid>
       </Grid>
