@@ -24,93 +24,97 @@ function HaeOmatTiedot() {
   };
 
   return (
-    <Paper elevation={4} className={classes.paper}>
-      <TextField
-        required
-        id="username"
-        label="Käyttäjätunnus"
-        defaultValue={users[2].username}
-        variant="outlined"
-        size="small"
-        style={{marginTop: 20, marginBottom: 5}} />
-      <br/>
-      <TextField
-        required
-        id="surname"
-        label="Sukunimi"
-        defaultValue={users[2].familyName}
-        variant="outlined"
-        size="small"
-        style={{margin: 5}}/>
-      <br/>
-      <TextField
-        required
-        id="firstnames"
-        label="Etunimet"
-        defaultValue={users[2].firstNames}
-        variant="outlined"
-        size="small"
-        style={{margin: 5}}/>
-      <br/>
-      <TextField
-        id="nickname"
-        label="Kutsumanimi"
-        defaultValue={users[2].nickName}
-        variant="outlined"
-        size="small"
-        style={{margin: 5}}/>
-      <br/>
-      <TextField
-        required
-        id="address"
-        label="Katuosoite"
-        defaultValue={users[2].address}
-        variant="outlined"
-        size="small"
-        style={{margin: 5}}/>
-      <br/>
-      <TextField
-        required
-        id="postalcode"
-        label="Postinumero"
-        defaultValue={users[2].postalCode}
-        variant="outlined"
-        size="small"
-        style={{margin: 5}}/>
-      <br/>
-      <TextField
-        required
-        id="city"
-        label="Kaupunki"
-        defaultValue={users[2].postalDistrict}
-        variant="outlined"
-        size="small"
-        style={{margin: 5}}/>
-      <br/>
-      <TextField
-        required
-        id="language"
-        label="Kieli"
-        defaultValue={users[2].languageCodeDescription}
-        variant="outlined"
-        size="small"
-        style={{marginTop: 5, marginBottom: 20}}/>
-      <br/>
-      <Button onClick={handleClickOpen} variant="contained" color="primary" style={{marginBottom: 20}}>Päivitä</Button>
+    <div>
+      <Typography style={{textAlign:"center"}} variant="h2"	>Omat tiedot</Typography>
+      <Paper elevation={4} className={classes.paper}>
+        <TextField
+          disabled
+          required
+          id="username"
+          label="Käyttäjätunnus"
+          defaultValue={users[2].username}
+          variant="outlined"
+          size="small"
+          style={{marginTop: 20, marginBottom: 5}} />
+        <br/>
+        <TextField
+          required
+          id="surname"
+          label="Sukunimi"
+          defaultValue={users[2].familyName}
+          variant="outlined"
+          size="small"
+          style={{margin: 5}}/>
+        <br/>
+        <TextField
+          required
+          id="firstnames"
+          label="Etunimet"
+          defaultValue={users[2].firstNames}
+          variant="outlined"
+          size="small"
+          style={{margin: 5}}/>
+        <br/>
+        <TextField
+          id="nickname"
+          label="Kutsumanimi"
+          defaultValue={users[2].nickName}
+          variant="outlined"
+          size="small"
+          style={{margin: 5}}/>
+        <br/>
+        <TextField
+          required
+          id="address"
+          label="Katuosoite"
+          defaultValue={users[2].address}
+          variant="outlined"
+          size="small"
+          style={{margin: 5}}/>
+        <br/>
+        <TextField
+          required
+          id="postalcode"
+          label="Postinumero"
+          defaultValue={users[2].postalCode}
+          variant="outlined"
+          size="small"
+          style={{margin: 5}}/>
+        <br/>
+        <TextField
+          required
+          id="city"
+          label="Kaupunki"
+          defaultValue={users[2].postalDistrict}
+          variant="outlined"
+          size="small"
+          style={{margin: 5}}/>
+        <br/>
+        <TextField
+          required
+          id="language"
+          label="Kieli"
+          defaultValue={users[2].languageCodeDescription}
+          variant="outlined"
+          size="small"
+          style={{marginTop: 5, marginBottom: 20}}/>
+        <br/>
+        <Button onClick={handleClickOpen} variant="contained" color="primary" style={{marginBottom: 20}}>Päivitä</Button>
 
-      <Dialog
-        open={show}
-        onClose={handleClose}
-        aria-labelledby="alert-title"
-        aria-describedby="alert-dialog-description">
-        <DialogTitle id="alert-title">{"Tiedot on päivitetty."}</DialogTitle>
-        <DialogActions>
-          <Button onClick={handleClose} variant="contained" color="secondary">
-            Sulje
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </Paper>
+        <Dialog
+          open={show}
+          onClose={handleClose}
+          aria-labelledby="alert-title"
+          aria-describedby="alert-dialog-description">
+          <DialogTitle id="alert-title">{"Tiedot on päivitetty."}</DialogTitle>
+          <DialogActions>
+            <Button onClick={handleClose} variant="contained" color="secondary">
+              Sulje
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Paper>
+    </div>
   );
 }
 

@@ -30,7 +30,7 @@ function LogIn() {
 
       <img src={biglogo} alt='logo' style={{height: 150, marginBottom:10, marginTop:10}} />
 
-      <Typography className={classes.header}>Kirjaudu sisään</Typography>
+      <Typography variant="h2">Kirjaudu sisään</Typography>
 
       <TextField
         required
@@ -77,10 +77,6 @@ function LogIn() {
 }
 
 const useStyles = makeStyles({
-  header: {
-    fontSize: 35,
-    marginBottom: 20,
-  },
   container: {
     display: "flex",
     flexDirection:"column",

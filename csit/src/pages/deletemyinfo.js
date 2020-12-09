@@ -31,8 +31,8 @@ function DeleteInfo() {
 
   return (
     <div className={classes.container}>
-      <Typography className={classes.header}>Pyydä tietojen poistoa</Typography>
-      <Typography className={classes.header2}>Mitä tietojen poistaminen tarkoittaa?</Typography>
+      <Typography variant="h2">Pyydä tietojen poistoa</Typography>
+      <Typography variant="h3">Mitä tietojen poistaminen tarkoittaa?</Typography>
 
       <div style={{maxWidth: 400}}>
         <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</Typography> <br/>
@@ -48,8 +48,21 @@ function DeleteInfo() {
         size="small"
         style={{marginBottom:15, marginTop: 25}} />
 
-      <Button onClick={handleClickOpen} variant="contained" color="primary" style={{marginBottom: 10}}>Lähetä</Button>
-      <Button to="/mypage" component={Link} variant="contained" color="secondary" style={{marginBottom: 20}}>Peruuta</Button>
+      <Button
+        onClick={handleClickOpen}
+        variant="contained"
+        color="primary"
+        style={{marginBottom: 10, width:110}}>
+        Lähetä
+      </Button>
+      <Button
+        to="/mypage"
+        component={Link}
+        variant="contained"
+        color="secondary"
+        style={{marginBottom: 20, width:110}}>
+        Peruuta
+      </Button>
 
 
       <Dialog
@@ -71,15 +84,6 @@ function DeleteInfo() {
 }
 
 const useStyles = makeStyles({
-  header: {
-    fontSize: 35,
-    marginBottom: 20,
-  },
-  header2: {
-    fontSize: 25,
-    marginBottom: 15,
-    color: "#ED1C24"
-  },
   container: {
     display: "flex",
     flexDirection:"column",

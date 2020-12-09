@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -10,16 +9,15 @@ import users from '../components/users.json'
 
 function HaeTyoTiedot() {
   const classes = useStyles();
-  const data = users;
 
   return (
     <div>
-      <Typography style={{textAlign:"center"}} className={classes.header}>Työsuhdetiedot</Typography>
+      <Typography style={{textAlign:"center"}} variant="h2">Työsuhdetiedot</Typography>
       <Paper elevation={4} className={classes.paper}>
         <TextField
           disabled
           id="usernumber"
-          label="Käyttäjänumero"
+          label="Henkilökuntanumero"
           defaultValue={users[2].id}
           variant="outlined"
           size="small"
@@ -47,7 +45,7 @@ function HaeTyoTiedot() {
           disabled
           id="work"
           label="Työsuhde"
-          defaultValue={users[2].workPeriodDescription}
+          defaultValue={users[2].workPeriodStatus}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -81,6 +79,15 @@ function HaeTyoTiedot() {
         <br/>
         <TextField
           disabled
+          id="workdepartment"
+          label="Yksikkkö"
+          defaultValue={users[2].workDepartment}
+          variant="outlined"
+          size="small"
+          style={{margin: 5}}/>
+        <br/>
+        <TextField
+          disabled
           id="supervisorid"
           label="Esimies ID"
           defaultValue={users[2].idOfSupervisor}
@@ -98,10 +105,6 @@ const useStyles = makeStyles({
     textAlign: 'center',
     width: 300,
     backgroundColor: "#EEEEEE"
-  },
-  header: {
-    fontSize: 35,
-    marginBottom: 20,
   },
 });
 

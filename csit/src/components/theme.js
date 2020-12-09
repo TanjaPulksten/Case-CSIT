@@ -14,9 +14,15 @@ const theme = createMuiTheme({
   },
   overrides: {
     MuiTypography: {
-      body2: { // Use in links
+      body2: { // Use this in links
         color: "#414042", underline: "always", fontSize:17,
         "&&:hover": {color: "#4634AD"}
+      },
+      h2:{
+        fontSize:35, marginBottom: 20,
+      },
+      h3:{
+        fontSize: 25, marginBottom: 15, color: "#ED1C24"
       }
     },
     MuiButton: {

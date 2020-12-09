@@ -30,7 +30,7 @@ function ForgotPassword() {
 
       <img src={biglogo} alt='logo' style={{height: 150, marginBottom:10, marginTop:10}} />
 
-      <Typography className={classes.header}>Unohtuiko salasana?</Typography>
+      <Typography variant="h2">Unohtuiko salasana?</Typography>
 
       <TextField
         required
@@ -43,13 +43,13 @@ function ForgotPassword() {
       <br/>
       <Button
         variant="contained" color="primary"
-        style={{marginBottom:15}}
+        style={{marginBottom:15, width:110}}
         onClick={handleClickOpen}>
         Lähetä
       </Button>
       <Button
         variant="contained" color="secondary"
-        style={{marginBottom:15}}
+        style={{marginBottom:15, width:110}}
         to="/login" component={Link}>
         Takaisin
       </Button>
@@ -74,10 +74,6 @@ function ForgotPassword() {
 }
 
 const useStyles = makeStyles({
-  header: {
-    fontSize: 35,
-    marginBottom: 20,
-  },
   container: {
     display: "flex",
     flexDirection:"column",

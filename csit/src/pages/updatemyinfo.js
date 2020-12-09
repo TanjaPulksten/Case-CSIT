@@ -32,6 +32,7 @@ function UpdateInfo() {
     workid: false,
     jobposition: false,
     jobdescription: false,
+    workdepartment: false,
     supervisorid: false,
   });
 
@@ -39,7 +40,7 @@ function UpdateInfo() {
     setCheck({ ...check, [event.target.name]: event.target.checked });
   };
 
-  const {usernumber, socialsecurity, workstarted, workstatus, workid, jobposition, jobdescription, supervisorid} = check;
+  const {usernumber, socialsecurity, workstarted, workstatus, workid, jobposition, jobdescription, workdepartment, supervisorid} = check;
 
 
   const handleDialogOpen = () => {
@@ -53,7 +54,7 @@ function UpdateInfo() {
 
   return (
     <div className={classes.container}>
-      <Typography style={{textAlign:"center"}} className={classes.header}>Pyydä työsuhdetietojen päivitystä</Typography>
+      <Typography style={{textAlign:"center"}} variant="h2">Pyydä työsuhdetietojen päivitystä</Typography>
       <Paper elevation={4} className={classes.paper}>
         <FormControl component="fieldset">
           <FormLabel component="legend" style={{margin: 5}}>Valitse päivitettävät kentät</FormLabel>
@@ -138,7 +139,7 @@ function UpdateInfo() {
 
             <div className={classes.check}>
               <FormControlLabel
-              control={<Checkbox checked={jobdescription} onChange={handleCheckChange} name="jobdescription" />}
+              control={<Checkbox checked={supervisorid} onChange={handleCheckChange} name="supervisorid" />}
               style={{marginRight:0}}/>
               <TextField
                 id="supervisorid"
@@ -146,6 +147,18 @@ function UpdateInfo() {
                 variant="outlined"
                 size="small"/>
             </div>
+
+            <div className={classes.check}>
+              <FormControlLabel
+              control={<Checkbox checked={workdepartment} onChange={handleCheckChange} name="workdepartment" />}
+              style={{marginRight:0}}/>
+              <TextField
+                id="workdepartment"
+                label="Yksikkkö"
+                variant="outlined"
+                size="small"/>
+            </div>
+
           </FormGroup>
         </FormControl>
 
@@ -159,8 +172,21 @@ function UpdateInfo() {
           size="small"
           style={{marginTop: 5, marginBottom: 20, width: 253}}/>
 
-        <Button onClick={handleDialogOpen} variant="contained" color="primary" style={{marginBottom: 10}}>Lähetä</Button> <br/>
-        <Button to="/mypage" component={Link} variant="contained" color="secondary" style={{marginBottom: 20}}>Peruuta</Button>
+        <Button
+          onClick={handleDialogOpen}
+          variant="contained"
+          color="primary"
+          style={{marginBottom: 10, width:110}}>
+          Lähetä
+        </Button> <br/>
+        <Button
+          to="/mypage"
+          component={Link}
+          variant="contained"
+          color="secondary"
+          style={{marginBottom: 20, width:110}}>
+          Peruuta
+        </Button>
 
         <Dialog
           open={show}
@@ -184,14 +210,10 @@ function UpdateInfo() {
 const useStyles = makeStyles({
   paper: {
     textAlign: 'center',
-    width: 300,
+    width: 320,
     backgroundColor: "#FBFAFA",
     paddingTop: 20,
     marginBottom: 20
-  },
-  header: {
-    fontSize: 35,
-    marginBottom: 20,
   },
   container: {
     display: "flex",

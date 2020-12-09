@@ -29,7 +29,7 @@ function ChangePassword() {
 
   return (
     <div className={classes.container}>
-      <Typography className={classes.header}>Vaihda salasanasi</Typography>
+      <Typography variant="h2">Vaihda salasanasi</Typography>
 
       <TextField
         required
@@ -49,8 +49,7 @@ function ChangePassword() {
         id="newpassword"
         label="Anna uusi salasana"
         variant="outlined"
-        size="small"
-        style={{marginTop: 5, marginBottom: 10}}/>
+        size="small"/>
 
       <TextField
         required
@@ -60,8 +59,21 @@ function ChangePassword() {
         size="small"
         style={{marginTop: 5, marginBottom: 20}}/>
 
-      <Button onClick={handleClickOpen} variant="contained" color="primary" style={{marginBottom: 10}}>Vaihda</Button>
-      <Button to="/mypage" component={Link} variant="contained" color="secondary" style={{marginBottom: 20}}>Peruuta</Button>
+      <Button
+        onClick={handleClickOpen}
+        variant="contained"
+        color="primary"
+        style={{marginBottom: 10, width:110}}>
+        Vaihda
+      </Button>
+      <Button
+        to="/mypage"
+        component={Link}
+        variant="contained"
+        color="secondary"
+        style={{marginBottom: 20, width:110}}>
+        Peruuta
+      </Button>
 
       <Dialog
         open={show}
@@ -80,10 +92,6 @@ function ChangePassword() {
 }
 
 const useStyles = makeStyles({
-  header: {
-    fontSize: 35,
-    marginBottom: 20,
-  },
   container: {
     display: "flex",
     flexDirection:"column",
@@ -96,6 +104,7 @@ const useStyles = makeStyles({
     backgroundColor:"#EAEAEA",
     width: 220,
     padding:5,
+    marginBottom:5,
   },
 });
 

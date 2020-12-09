@@ -37,6 +37,7 @@ function App() {
               <Typography style={{fontWeight: "bold"}}>SV EN</Typography>
             </div>
           </Paper>
+
           <Switch>
             <Route exact path="/" component={LogIn}/>
             <Route path="/forgot" component={ForgotPassword}/>
@@ -54,11 +55,6 @@ function App() {
 }
 
 const useStyles = makeStyles({
-  header: {
-    fontFamily: ['Avenir', 'Lato', 'sans-serif'],
-    color: "#414042",
-    fontSize: 45,
-  },
   container: {
     flex: 1,
     display:"flex",
@@ -67,7 +63,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     backgroundColor: "#FBFAFA",
     borderWidth: 0,
-    marginBottom: 25,
+    marginBottom: 30,
     padding:"0px 15px 0px 15px"
   }
 

@@ -19,8 +19,8 @@ function MyPage() {
   return (
     <div className={classes.container}>
       <Grid container spacing={8}>
+
         <Grid container item xs={12} sm={6} alignContent="flex-end" direction="column">
-          <Typography style={{textAlign:"center"}} className={classes.header}>Omat tiedot</Typography>
           {HaeOmatTiedot()}
         </Grid>
 
@@ -34,16 +34,13 @@ function MyPage() {
             <Typography to="/delete" component={Link} variant="body2">Tietojen poistopyyntö</Typography>
           </Paper>
         </Grid>
+        
       </Grid>
     </div>
   );
 }
 
 const useStyles = makeStyles({
-  header: {
-    fontSize: 35,
-    marginBottom: 20,
-  },
   container: {
     flexGrow: 1,
     flexDirection: 'row',

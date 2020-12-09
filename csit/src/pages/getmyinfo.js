@@ -29,15 +29,15 @@ function GetInfo() {
 
   return (
     <div className={classes.container}>
-      <Typography className={classes.header}>Käyttäjätietojen tilaus</Typography>
-      <Typography className={classes.header2}>Mitä tietoja keräämme sinusta ja miksi</Typography>
+      <Typography variant="h2">Käyttäjätietojen tilaus</Typography>
+      <Typography variant="h3">Mitä tietoja keräämme sinusta ja miksi</Typography>
 
       <div style={{maxWidth: 400}}>
         <Typography>Keräämme henkilötietoja oman liiketoimintamme tarpeisiin, erityisesti voidaksemme tarjota palveluitamme, myydäksemme ja markkinoidaksemme palveluitamme sekä rekrytoidaksemme uutta henkilöstöä. Sivustollamme on lomakkeita, joiden kautta meihin voi ottaa yhteyttä ja välittää meille henkilötietoja; esimerkiksi nimen ja yhteystiedot. Säilytämme ja käsittelemme lomakkeiden kautta toimitettuja tietoja, jotta voimme vastata meiltä pyydettyihin asioihin ja tuottaa palveluita asiakkaillemme. Ylläpidämme markkinointi- ja myyntirekisteriä, jonne verkkosivustomme kautta lähetetyt tiedot talletetaan. Voit koska tahansa pyytää meitä lopettamaan tietojesi käsittelyn ja poistamaan tiedot.</Typography> <br/>
         <Typography>Tietoja säilytetään hyvien tietoturvakäytäntöjen mukaisesti. Tietoja käsittelevät vain sellaiset henkilöt, jotka tehtäviensä puolesta tarvitsevat tietoja.</Typography>
       </div>
 
-      <Typography className={classes.header2} style={{marginTop: 20}}>Tilaa tiedot sähköpostiisi</Typography>
+      <Typography variant="h3" style={{marginTop: 20}}>Tilaa tiedot sähköpostiisi</Typography>
 
       <TextField
         required
@@ -48,8 +48,21 @@ function GetInfo() {
         size="small"
         style={{marginBottom:15}} />
 
-      <Button onClick={handleClickOpen} variant="contained" color="primary" style={{marginBottom: 10}}>Vaihda</Button>
-      <Button to="/mypage" component={Link} variant="contained" color="secondary" style={{marginBottom: 20}}>Peruuta</Button>
+      <Button
+        onClick={handleClickOpen}
+        variant="contained"
+        color="primary"
+        style={{marginBottom: 10, width:110}}>
+        Vaihda
+      </Button>
+      <Button
+        to="/mypage"
+        component={Link}
+        variant="contained"
+        color="secondary"
+        style={{marginBottom: 20, width:110}}>
+        Peruuta
+      </Button>
 
 
       <Dialog
@@ -72,15 +85,6 @@ function GetInfo() {
 }
 
 const useStyles = makeStyles({
-  header: {
-    fontSize: 35,
-    marginBottom: 20,
-  },
-  header2: {
-    fontSize: 25,
-    marginBottom: 15,
-    color: "#ED1C24"
-  },
   container: {
     display: "flex",
     flexDirection:"column",
