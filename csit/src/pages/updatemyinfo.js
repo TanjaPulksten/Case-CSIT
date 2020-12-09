@@ -25,6 +25,7 @@ function UpdateInfo() {
   const [show, setShow] = useState(false);
 
   const [check, setCheck] = useState({
+    username: false,
     usernumber: false,
     socialsecurity: false,
     workstarted: false,
@@ -40,7 +41,7 @@ function UpdateInfo() {
     setCheck({ ...check, [event.target.name]: event.target.checked });
   };
 
-  const {usernumber, socialsecurity, workstarted, workstatus, workid, jobposition, jobdescription, workdepartment, supervisorid} = check;
+  const {username, usernumber, socialsecurity, workstarted, workstatus, workid, jobposition, jobdescription, workdepartment, supervisorid} = check;
 
 
   const handleDialogOpen = () => {
@@ -60,6 +61,19 @@ function UpdateInfo() {
           <FormLabel component="legend" style={{margin: 5}}>Valitse päivitettävät kentät</FormLabel>
 
           <FormGroup>
+
+            <div className={classes.check}>
+            <FormControlLabel
+            control={<Checkbox checked={username} onChange={handleCheckChange} name="username"/>}
+            style={{marginRight:0}}/>
+            <TextField
+              disabled
+              id="username"
+              label="Käyttäjätunnus"
+              variant="outlined"
+              size="small"/>
+            </div>
+
             <div className={classes.check}>
               <FormControlLabel
               control={<Checkbox checked={usernumber} onChange={handleCheckChange} name="usernumber"/>}

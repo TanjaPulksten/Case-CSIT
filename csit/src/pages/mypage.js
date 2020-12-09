@@ -22,11 +22,7 @@ function MyPage() {
 
         <Grid container item xs={12} sm={6} alignContent="flex-end" direction="column">
           {HaeOmatTiedot()}
-        </Grid>
-
-        <Grid container item xs={12} sm={6} alignContent="flex-start" direction="column">
-          {HaeTyoTiedot()}
-
+          
           <Paper elevation={4} className={classes.paper}>
             <Typography to="/changepassword" component={Link} variant="body2">Vaihda salasana</Typography> <br/>
             <Typography to="/update" component={Link} variant="body2">Työsuhdetietojen päivityspyyntö</Typography> <br/>
@@ -34,7 +30,11 @@ function MyPage() {
             <Typography to="/delete" component={Link} variant="body2">Tietojen poistopyyntö</Typography>
           </Paper>
         </Grid>
-        
+
+        <Grid container item xs={12} sm={6} alignContent="flex-start" direction="column">
+          {HaeTyoTiedot()}
+        </Grid>
+
       </Grid>
     </div>
   );

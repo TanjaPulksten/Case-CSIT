@@ -16,7 +16,7 @@ const theme = createMuiTheme({
     MuiTypography: {
       body2: { // Use this in links
         color: "#414042", underline: "always", fontSize:17,
-        "&&:hover": {color: "#4634AD"}
+        "&&:hover": {color: "#71B7AD"}
       },
       h2:{
         fontSize:35, marginBottom: 20,

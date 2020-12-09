@@ -16,12 +16,21 @@ function HaeTyoTiedot() {
       <Paper elevation={4} className={classes.paper}>
         <TextField
           disabled
+          id="username"
+          label="Käyttäjätunnus"
+          defaultValue={users[2].username}
+          variant="outlined"
+          size="small"
+          style={{marginTop: 20, marginBottom: 5}} />
+        <br/>
+        <TextField
+          disabled
           id="usernumber"
           label="Henkilökuntanumero"
           defaultValue={users[2].id}
           variant="outlined"
           size="small"
-          style={{marginTop: 20, marginBottom: 5}} />
+          style={{margin:5}} />
         <br/>
         <TextField
           disabled

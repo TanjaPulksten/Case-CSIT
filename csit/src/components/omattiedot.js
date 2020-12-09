@@ -28,23 +28,13 @@ function HaeOmatTiedot() {
       <Typography style={{textAlign:"center"}} variant="h2"	>Omat tiedot</Typography>
       <Paper elevation={4} className={classes.paper}>
         <TextField
-          disabled
-          required
-          id="username"
-          label="Käyttäjätunnus"
-          defaultValue={users[2].username}
-          variant="outlined"
-          size="small"
-          style={{marginTop: 20, marginBottom: 5}} />
-        <br/>
-        <TextField
           required
           id="surname"
           label="Sukunimi"
           defaultValue={users[2].familyName}
           variant="outlined"
           size="small"
-          style={{margin: 5}}/>
+          style={{marginTop: 20, marginBottom: 5}}/>
         <br/>
         <TextField
           required
