@@ -4,9 +4,7 @@ const theme = createMuiTheme({
   palette:{
     primary: {main:"#414042", light: "#8D8D8D", contrastText:"#FBFAFA"},
     secondary: {main:"#71B7AD", contrastText:"#414042"},
-    text: {primary: "#414042", secondary:"#8D8D8D", contrastText:"#DDDDDD",
-    },
-    action: {active:"#ED1C24", hover:"#ED1C24", selected:"#FCB81C"},
+    text: {primary: "#414042", secondary:"#8D8D8D", contrastText:"#DDDDDD"},
     background: {default: "#FBFAFA"},
   },
   typography: {
@@ -15,7 +13,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiTypography: {
       body2: { // Use this in links
-        color: "#414042", underline: "always", fontSize:17,
+        color: "#414042", textDecoration:"underline", fontSize:17,
         "&&:hover": {color: "#71B7AD"}
       },
       h2:{

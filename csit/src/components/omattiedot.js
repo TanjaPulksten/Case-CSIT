@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -8,9 +8,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 
-import users from '../components/users.json'
-
-function HaeOmatTiedot() {
+function HaeOmatTiedot(data) {
   const classes = useStyles();
   const [show, setShow] = useState(false);
 
@@ -26,12 +24,12 @@ function HaeOmatTiedot() {
   return (
     <div>
       <Typography style={{textAlign:"center"}} variant="h2"	>Omat tiedot</Typography>
-      <Paper elevation={4} className={classes.paper}>
+      <Paper elevation={4} className={classes.paper} key={data.id}>
         <TextField
           required
           id="surname"
           label="Sukunimi"
-          defaultValue={users[2].familyName}
+          defaultValue={data.familyName}
           variant="outlined"
           size="small"
           style={{marginTop: 20, marginBottom: 5}}/>
@@ -40,7 +38,7 @@ function HaeOmatTiedot() {
           required
           id="firstnames"
           label="Etunimet"
-          defaultValue={users[2].firstNames}
+          defaultValue={data.firstNames}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -48,7 +46,7 @@ function HaeOmatTiedot() {
         <TextField
           id="nickname"
           label="Kutsumanimi"
-          defaultValue={users[2].nickName}
+          defaultValue={data.nickName}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -57,7 +55,7 @@ function HaeOmatTiedot() {
           required
           id="address"
           label="Katuosoite"
-          defaultValue={users[2].address}
+          defaultValue={data.address}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -66,7 +64,7 @@ function HaeOmatTiedot() {
           required
           id="postalcode"
           label="Postinumero"
-          defaultValue={users[2].postalCode}
+          defaultValue={data.postalCode}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -75,7 +73,7 @@ function HaeOmatTiedot() {
           required
           id="city"
           label="Kaupunki"
-          defaultValue={users[2].postalDistrict}
+          defaultValue={data.postalDistrict}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -84,7 +82,7 @@ function HaeOmatTiedot() {
           required
           id="language"
           label="Kieli"
-          defaultValue={users[2].languageCodeDescription}
+          defaultValue={data.languageCodeDescription}
           variant="outlined"
           size="small"
           style={{marginTop: 5, marginBottom: 20}}/>

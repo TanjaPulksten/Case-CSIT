@@ -1,38 +1,49 @@
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import users from '../components/users.json';
+import userCommands from '../components/userdatacommands.js';
+
 import HaeOmatTiedot from '../components/omattiedot.js';
 import HaeTyoTiedot from '../components/tyotiedot.js';
 
-function MyPage() {
+function MyPage(props, {location}) {
   const classes = useStyles();
+  const [userData, setUserData] = useState([])
+  const {id} = useParams();
 
-  const data = users;
+  useEffect(() => {
+    console.log("useEffect: mypage")
+    userCommands // get users from db.json server
+      .getAll()
+      .then(response => {
+        let user = response.data.find(user => user.id === id)
+        setUserData(user)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  },[id]);
 
   return (
     <div className={classes.container}>
       <Grid container spacing={8}>
 
         <Grid container item xs={12} sm={6} alignContent="flex-end" direction="column">
-          {HaeOmatTiedot()}
-          
+          {HaeOmatTiedot(userData)}
           <Paper elevation={4} className={classes.paper}>
-            <Typography to="/changepassword" component={Link} variant="body2">Vaihda salasana</Typography> <br/>
-            <Typography to="/update" component={Link} variant="body2">Työsuhdetietojen päivityspyyntö</Typography> <br/>
-            <Typography to="/getmydata" component={Link} variant="body2">Omien käyttäjätietojen tilaus</Typography> <br/>
-            <Typography to="/delete" component={Link} variant="body2">Tietojen poistopyyntö</Typography>
+            <Typography to= {`/changepassword/${id}`} component={Link} variant="body2">Vaihda salasana</Typography> <br/>
+            <Typography to= {`/update/${id}`} component={Link} variant="body2">Työsuhdetietojen päivityspyyntö</Typography> <br/>
+            <Typography to= {`/getmydata/${id}`} component={Link} variant="body2">Omien käyttäjätietojen tilaus</Typography> <br/>
+            <Typography to= {`/delete/${id}`} component={Link} variant="body2">Tietojen poistopyyntö</Typography>
           </Paper>
         </Grid>
 
         <Grid container item xs={12} sm={6} alignContent="flex-start" direction="column">
-          {HaeTyoTiedot()}
+          {HaeTyoTiedot(userData)}
         </Grid>
 
       </Grid>

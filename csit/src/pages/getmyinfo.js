@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useParams} from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -10,19 +10,16 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 
-import users from '../components/users.json'
 
 function GetInfo() {
   const classes = useStyles();
-  const data = users;
   const [show, setShow] = useState(false);
+  const {id} = useParams();
 
   const handleClickOpen = () => {
-    console.log("open")
     setShow(true);
   };
   const handleClose = () => {
-    console.log("close")
     setShow(false);
   };
 
@@ -53,10 +50,10 @@ function GetInfo() {
         variant="contained"
         color="primary"
         style={{marginBottom: 10, width:110}}>
-        Vaihda
+        Tilaa
       </Button>
       <Button
-        to="/mypage"
+        to={`/mypage/${id}`}
         component={Link}
         variant="contained"
         color="secondary"
@@ -74,7 +71,7 @@ function GetInfo() {
           <DialogContentText id="alert-dialog-description"> {"Saat sähköpostiisi kopiot tiedoistasi 24 tunnin sisällä."} </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button to="/mypage" component={Link} variant="contained" color="secondary">
+          <Button to={`/mypage/${id}`} component={Link} variant="contained" color="secondary">
             Omalle sivulle
           </Button>
         </DialogActions>

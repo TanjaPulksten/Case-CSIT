@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -17,11 +17,9 @@ function ForgotPassword() {
   const [show, setShow] = useState(false);
 
   const handleClickOpen = () => {
-    console.log("open")
     setShow(true);
   };
   const handleClose = () => {
-    console.log("close")
     setShow(false);
   };
 
@@ -36,7 +34,7 @@ function ForgotPassword() {
         required
         id="tunnus"
         label="Syötä sähköpostiosoite"
-        placeholder="essi.esimerkki@csit.com"
+        placeholder="essi.esimerkki@csit.fi"
         variant="outlined"
         size="small"
         color="primary" />

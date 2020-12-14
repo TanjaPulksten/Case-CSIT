@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -22,8 +22,6 @@ import theme from './components/theme.js';
 function App() {
   const classes = useStyles();
 
-  const [logout, setLogout] = useState("Kirjaudu ulos")
-
   return (
     <MuiThemeProvider theme = {theme}>
       <CssBaseline />
@@ -32,21 +30,21 @@ function App() {
           <Paper elevation={5} className={classes.container}>
             <img src={logo} alt='logo' style={{height: 50, margin:5}}/>
             <div style={{display:"flex", flexDirection:"row"}}>
-              <Typography variant="body2" style={{fontWeight: "bold", marginRight:30}} to="/" component={Link}>{logout}</Typography>
+              <Typography variant="body2" style={{fontWeight: "bold", marginRight:30}} to="/" component={Link}>Kirjaudu ulos</Typography>
               <Typography style={{fontWeight: "bold", color:"#ED1C24", marginRight:5}}>FI</Typography>
               <Typography style={{fontWeight: "bold"}}>SV EN</Typography>
             </div>
           </Paper>
 
           <Switch>
-            <Route exact path="/" component={LogIn}/>
-            <Route path="/forgot" component={ForgotPassword}/>
-            <Route path="/mypage" component={MyPage}/>
-            <Route path="/changepassword" component={ChangePassword}/>
-            <Route path="/update" component={UpdateInfo}/>
-            <Route path="/getmydata" component={GetInfo}/>
-            <Route path="/delete" component={DeleteInfo}/>
-            <Route component={LogIn}/>
+            <Route exact path="/"> <LogIn /> </Route>
+            <Route path="/forgot"> <ForgotPassword /> </Route>
+            <Route path="/mypage/:id"> <MyPage /> </Route>
+            <Route path="/changepassword/:id"> <ChangePassword /> </Route>
+            <Route path="/update/:id"> <UpdateInfo /> </Route>
+            <Route path="/getmydata/:id"> <GetInfo /> </Route>
+            <Route path="/delete/:id"> <DeleteInfo /> </Route>
+            <Route> <LogIn /> </Route>
           </Switch>
         </div>
       </BrowserRouter>

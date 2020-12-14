@@ -1,24 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-import users from '../components/users.json'
-
-function HaeTyoTiedot() {
+function HaeTyoTiedot(data) {
   const classes = useStyles();
 
   return (
     <div>
       <Typography style={{textAlign:"center"}} variant="h2">Työsuhdetiedot</Typography>
-      <Paper elevation={4} className={classes.paper}>
+      <Paper elevation={4} className={classes.paper} key={data.id}>
         <TextField
           disabled
           id="username"
           label="Käyttäjätunnus"
-          defaultValue={users[2].username}
+          defaultValue={data.username}
           variant="outlined"
           size="small"
           style={{marginTop: 20, marginBottom: 5}} />
@@ -27,7 +25,7 @@ function HaeTyoTiedot() {
           disabled
           id="usernumber"
           label="Henkilökuntanumero"
-          defaultValue={users[2].id}
+          defaultValue={data.id}
           variant="outlined"
           size="small"
           style={{margin:5}} />
@@ -36,7 +34,7 @@ function HaeTyoTiedot() {
           disabled
           id="socialsecurity"
           label="Sosiaaliturvatunnus"
-          defaultValue={users[2].socialSecurityCode}
+          defaultValue={data.socialSecurityCode}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -45,7 +43,7 @@ function HaeTyoTiedot() {
           disabled
           id="workstarted"
           label="Työsuhteen alkamisaika"
-          defaultValue={users[2].workPeriodStartDate}
+          defaultValue={data.workPeriodStartDate}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -54,7 +52,7 @@ function HaeTyoTiedot() {
           disabled
           id="work"
           label="Työsuhde"
-          defaultValue={users[2].workPeriodStatus}
+          defaultValue={data.workPeriodStatus}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -63,7 +61,7 @@ function HaeTyoTiedot() {
           disabled
           id="workid"
           label="Työsuhde ID"
-          defaultValue={users[2].workPeriodId}
+          defaultValue={data.workPeriodId}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -72,7 +70,7 @@ function HaeTyoTiedot() {
           disabled
           id="jobposition"
           label="Työnimike"
-          defaultValue={users[2].workPeriodDescription}
+          defaultValue={data.workPeriodDescription}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -81,7 +79,7 @@ function HaeTyoTiedot() {
           disabled
           id="jobdescription"
           label="Työnkuva"
-          defaultValue={users[2].officialJobDescription}
+          defaultValue={data.officialJobDescription}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -90,7 +88,7 @@ function HaeTyoTiedot() {
           disabled
           id="workdepartment"
           label="Yksikkkö"
-          defaultValue={users[2].workDepartment}
+          defaultValue={data.workDepartment}
           variant="outlined"
           size="small"
           style={{margin: 5}}/>
@@ -99,7 +97,7 @@ function HaeTyoTiedot() {
           disabled
           id="supervisorid"
           label="Esimies ID"
-          defaultValue={users[2].idOfSupervisor}
+          defaultValue={data.idOfSupervisor}
           variant="outlined"
           size="small"
           style={{marginTop: 5, marginBottom: 20}}/>

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useParams} from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -10,12 +10,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 
-import users from '../components/users.json'
 
 function ChangePassword() {
   const classes = useStyles();
-  const data = users;
   const [show, setShow] = useState(false);
+  const {id} = useParams();
 
   const handleClickOpen = () => {
     console.log("open")
@@ -67,7 +66,7 @@ function ChangePassword() {
         Vaihda
       </Button>
       <Button
-        to="/mypage"
+        to={`/mypage/${id}`}
         component={Link}
         variant="contained"
         color="secondary"
@@ -81,7 +80,7 @@ function ChangePassword() {
         aria-labelledby="alert-title">
         <DialogTitle id="alert-title">{"Salasanan vaihto onnistui!"}</DialogTitle>
         <DialogActions>
-          <Button to="/mypage" component={Link} variant="contained" color="secondary">
+          <Button to= {`/mypage/${id}`} component={Link} variant="contained" color="secondary">
             Omalle sivulle
           </Button>
         </DialogActions>

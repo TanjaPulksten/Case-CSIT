@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -16,13 +16,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/core/styles';
 
-import users from '../components/users.json'
+import userCommands from '../components/userdatacommands.js';
 
 function UpdateInfo() {
   const classes = useStyles();
-  const data = users;
-
+  const {id} = useParams();
   const [show, setShow] = useState(false);
+  const [userData, setUserData] = useState([])
 
   const [check, setCheck] = useState({
     username: false,
@@ -44,12 +44,24 @@ function UpdateInfo() {
   const {username, usernumber, socialsecurity, workstarted, workstatus, workid, jobposition, jobdescription, workdepartment, supervisorid} = check;
 
 
+  useEffect(() => {
+    console.log("useEffect: update")
+    userCommands // get users from db.json server
+      .getAll()
+      .then(response => {
+        let user = response.data.find(user => user.id === id)
+        setUserData(user)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  },[id]);
+
+
   const handleDialogOpen = () => {
-    console.log("open")
     setShow(true);
   };
   const handleDialogClose = () => {
-    console.log("close")
     setShow(false);
   };
 
@@ -60,16 +72,16 @@ function UpdateInfo() {
         <FormControl component="fieldset">
           <FormLabel component="legend" style={{margin: 5}}>Valitse päivitettävät kentät</FormLabel>
 
-          <FormGroup>
+          <FormGroup key={userData.id}>
 
             <div className={classes.check}>
             <FormControlLabel
             control={<Checkbox checked={username} onChange={handleCheckChange} name="username"/>}
             style={{marginRight:0}}/>
             <TextField
-              disabled
               id="username"
               label="Käyttäjätunnus"
+              defaultValue={userData.username}
               variant="outlined"
               size="small"/>
             </div>
@@ -81,6 +93,7 @@ function UpdateInfo() {
               <TextField
                 id="usernumber"
                 label="Käyttäjänumero"
+                defaultValue={userData.id}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -92,6 +105,7 @@ function UpdateInfo() {
               <TextField
                 id="socialsecurity"
                 label="Sosiaaliturvatunnus"
+                defaultValue={userData.socialSecurityCode}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -103,6 +117,7 @@ function UpdateInfo() {
               <TextField
                 id="workstarted"
                 label="Työsuhteen alkamisaika"
+                defaultValue={userData.workPeriodStartDate}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -114,6 +129,7 @@ function UpdateInfo() {
               <TextField
                 id="workstatus"
                 label="Työsuhde"
+                defaultValue={userData.workPeriodStatus}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -125,6 +141,7 @@ function UpdateInfo() {
               <TextField
                 id="workid"
                 label="Työsuhde ID"
+                defaultValue={userData.workPeriodId}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -136,6 +153,7 @@ function UpdateInfo() {
               <TextField
                 id="jobposition"
                 label="Työnimike"
+                defaultValue={userData.workPeriodDescription}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -147,6 +165,7 @@ function UpdateInfo() {
               <TextField
                 id="jobdescription"
                 label="Työnkuva"
+                defaultValue={userData.officialJobDescription}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -158,6 +177,7 @@ function UpdateInfo() {
               <TextField
                 id="supervisorid"
                 label="Esimies ID"
+                defaultValue={userData.idOfSupervisor}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -169,6 +189,7 @@ function UpdateInfo() {
               <TextField
                 id="workdepartment"
                 label="Yksikkkö"
+                defaultValue={userData.workDepartment}
                 variant="outlined"
                 size="small"/>
             </div>
@@ -194,7 +215,7 @@ function UpdateInfo() {
           Lähetä
         </Button> <br/>
         <Button
-          to="/mypage"
+          to={`/mypage/${id}`}
           component={Link}
           variant="contained"
           color="secondary"
@@ -211,7 +232,7 @@ function UpdateInfo() {
             <DialogContentText id="alert-dialog-description"> {"Saat tietoa pyynnön tilasta sähköpostitse."} </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button to="/mypage" component={Link} variant="contained" color="secondary">
+            <Button to={`/mypage/${id}`} component={Link} variant="contained" color="secondary">
               Omalle sivulle
             </Button>
           </DialogActions>
